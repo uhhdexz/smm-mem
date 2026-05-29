@@ -23,6 +23,7 @@ link %EFI_LD% /subsystem:EFI_BOOT_SERVICE_DRIVER /entry:SmmEntry /out:%OUT%\Smm.
 link %EFI_LD% /subsystem:EFI_BOOT_SERVICE_DRIVER /entry:DxeEntry /out:%OUT%\Dxe.efi %OUT%\Dxe.obj || exit /b 1
 
 call cl /nologo /W4 /O2 /DUNICODE /D_UNICODE /Fo:%OUT%\Client.obj /Fe:%OUT%\Client.exe src\Client.c || exit /b 1
+REM API example build: call cl /nologo /W4 /O2 /DUNICODE /D_UNICODE /DAPI_ONLY /Fo:%OUT%\ /Fe:%OUT%\example.exe src\example.c src\Client.c || exit /b 1
 
 echo Built:
 echo   %OUT%\Smm.efi
